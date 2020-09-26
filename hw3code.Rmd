@@ -1,0 +1,27 @@
+---
+title: "hw3"
+author: "Tianqi(Tim)"
+date: "9/26/2020"
+output: html_document
+---
+
+
+
+```{r}
+
+hogdata <- read.table("https://raw.githubusercontent.com/Kakashi-sensei/STAT_587_2020_fall_Assignment3/master/hogs.txt", header = TRUE)
+
+t.test(hogdata$Placebo_Gain,hogdata$Treatment_Gain,paired=T, conf.level=0.9)
+
+
+dlw <- read.table("https://raw.githubusercontent.com/Kakashi-sensei/STAT_587_2020_fall_Assignment3/master/ex0428.txt", header = TRUE)
+
+dlw2 <- transform(dlw, dif=dlw$Cross-dlw$Self)
+
+boxplot(dlw2$dif, main="Box Plot", ylab="difference")
+
+wilcox.test(dlw$Cross, dlw$Self, paired = TRUE, alternative = "two.sided")
+
+rm(list=ls())
+```
+
